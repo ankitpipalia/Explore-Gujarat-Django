@@ -1,4 +1,4 @@
 asgiref
 backports.zoneinfo
-Django
+django
 mysql-connector
