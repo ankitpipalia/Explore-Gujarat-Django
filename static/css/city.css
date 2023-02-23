@@ -112,7 +112,17 @@ img{
 
 }
 
+
+.city-title {
+    display: block;
+}
+
+img {
+    display: block;
+}
+
 .list-sc-item .list-marker {
+    
     float: left;
     margin: 0 0.625rem 0.625rem;
 }
