@@ -16,8 +16,9 @@ ENV MYSQL_DATABASE=gujarat
 
 RUN cp /var/www/html/default.conf /etc/nginx/conf.d/
 RUN add-apt-repository --yes ppa:deadsnakes/ppa
-RUN apt-get -y update upgrade
-RUN apt-get install -y python3.8 python3-pip python3-venv
+RUN apt-get -y update
+RUN apt-get upgrade -y
+RUN apt-get install -y python3.8 python3-pip virtualenv
 
 EXPOSE 3306
 EXPOSE 80
