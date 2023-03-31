@@ -1,21 +1,31 @@
-FROM python:3.9
+FROM ubuntu
 
-RUN cd ~
-RUN git clone https://github.com/ankitpipalia/Explore-Gujarat-Django.git
-RUN apt update -y
-RUN apt dist-upgrade -y
-RUN apt install python3-dev -y
-RUN apt-get install mariadb-server -y
-RUN apt install openssl
+RUN apt-get update -y
+RUN apt-get upgrade -y
 
-WORKDIR Explore-Gujarat-Django
+RUN apt-get install -y git mariadb-server nginx software-properties-common
 
-RUN pip install --upgrade pip
-RUN pip install asgiref
-RUN pip install backports.zoneinfo
-RUN pip install django
-RUN pip install mysql-connector
-RUN pip install mysql-connector-python-rf
+RUN rm /var/www/html/index.nginx-debian.html
+RUN rm -rf /etc/nginx/sites-available/*
+RUN rm -rf /etc/nginx/conf.d/*
 
-EXPOSE 8000
-ENTRYPOINT python manage.py runserver 0.0.0.0:8000
+RUN git clone https://github.com/ankitpipalia/Explore-Gujarat-Django.git /var/www/html
+
+ENV MYSQL_ROOT_PASSWORD=root1234
+ENV MYSQL_DATABASE=gujarat
+
+RUN cp /var/www/html/default.conf /etc/nginx/conf.d/
+RUN add-apt-repository --yes ppa:deadsnakes/ppa
+RUN apt-get -y update upgrade
+RUN apt-get install -y python3.8 python3-pip python3-venv
+
+EXPOSE 3306
+EXPOSE 80
+EXPOSE 443
+
+WORKDIR /var/www/html
+RUN python3.8 -m venv myenv
+RUN source myenv/bin/activate
+RUN pip3 install -r requirements.txt
+
+ENTRYPOINT /etc/init.d/mariadb start && python manage.py runserver 0.0.0.0:8000 && /etc/ini.d/nginx start && bin/bash
