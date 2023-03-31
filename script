@@ -1,0 +1,4 @@
+#!/bin/bash
+mysql -e "create database gujarat;"
+mysql -u root gujarat < gujarat_database.sql
+mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'root1234';"
