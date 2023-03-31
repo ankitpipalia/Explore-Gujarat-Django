@@ -25,4 +25,4 @@ RUN pip3 install backports.zoneinfo
 RUN pip3 install --upgrade pip
 RUN chmod +x /var/www/html/script
 
-ENTRYPOINT /etc/init.d/mariadb start && /etc/init.d/nginx start && /var/www/html/script && /bin/bash
+ENTRYPOINT /etc/init.d/mariadb start && /etc/init.d/nginx start && /bin/bash

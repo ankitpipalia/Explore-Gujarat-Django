@@ -2,3 +2,5 @@
 mysql -e "create database gujarat;"
 mysql -u root gujarat < gujarat_database.sql
 mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'root1234';"
+echo "127.0.0.1       pipalia.tech" >> /etc/hosts
+echo "::1     pipalia.tech" >> /etc/hosts
