@@ -1,8 +1,7 @@
 FROM python:3.9
 
 RUN apt-get -y update
-RUN apt-get -y upgrade
-RUN apt-get install -y git mariadb-server nginx
+RUN apt-get install -y mariadb-server nginx
 
 RUN rm /var/www/html/index.nginx-debian.html
 RUN rm -rf /etc/nginx/sites-available/*
@@ -18,10 +17,7 @@ EXPOSE 80
 EXPOSE 443
 
 WORKDIR /var/www/html
-RUN pip3 install django
-RUN pip3 install mysql-connector
-RUN pip3 install asgiref
-RUN pip3 install backports.zoneinfo
+RUN pip3 install -r requirements.txt
 RUN pip3 install --upgrade pip
 RUN chmod +x /var/www/html/script
 
