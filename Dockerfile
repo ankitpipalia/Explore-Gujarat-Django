@@ -24,5 +24,4 @@ RUN pip3 install asgiref
 RUN pip3 install backports.zoneinfo
 RUN pip3 install --upgrade pip
 
-ENTRYPOINT /etc/init.d/mariadb start && python3 manage.py runserver localhost:8000 && /etc/init.d/nginx start && 
-/bin/bash
+ENTRYPOINT /etc/init.d/mariadb start && python3 manage.py runserver localhost:8000 && /etc/init.d/nginx start && /bin/bash
