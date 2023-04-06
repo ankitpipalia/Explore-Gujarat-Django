@@ -8,14 +8,14 @@ ___
 git clone https://github.com/ankitpipalia/Explore-Gujarat-Django.git
 ```
 
-2. Build the Docker image 
+2. Build the Docker Compose
 ```
-docker build -t gujarat-explore .
+docker-compose build --no-cache
 ```
 
 3. Run the Docker container
 ```
-docker run -p 80:80 gujarat-explore
+docker-compose up
 ```
 
 4. Access the website
@@ -30,7 +30,7 @@ The Gujarat Explore website provides the following features:
 ### Technologies Used
 + Django
 + MySQL
-+ Nginx
++ Nginx(For Reverse Proxy)
 + Docker
 + HTML
 + CSS
