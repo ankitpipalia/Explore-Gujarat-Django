@@ -5,7 +5,7 @@ ___
 ### Installation and Setup
 1. Clone the repository
 ```
-git clone https://github.com/ankitpipalia/Explore-Gujarat-Django.git
+git clone https://github.com/ankitpipalia/Explore-Gujarat-Django.git .
 ```
 
 2. Build the Docker Compose
