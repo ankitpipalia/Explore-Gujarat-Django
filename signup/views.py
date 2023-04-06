@@ -12,7 +12,7 @@ g=''
 def signupaction(request):
     global fn,em,pwd,g
     if request.method=="POST":
-        m=sql.connect(host="localhost",user="root",passwd="root1234",database='gujarat')
+        m=sql.connect(host="mysql",user="root",passwd="root1234",database='gujarat')
         cursor=m.cursor()
         d=request.POST
         for key,value in d.items():
