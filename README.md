@@ -37,5 +37,5 @@ The Gujarat Explore website provides the following features:
 + JavaScript
 
 ### Images
-[homepage1](https://github.com/ankitpipalia/Explore-Gujarat-Django/blob/master/template/img/homepage.png)
-[homepage1](https://github.com/ankitpipalia/Explore-Gujarat-Django/blob/master/template/img/homepage2.png)
+![homepage1](https://github.com/ankitpipalia/Explore-Gujarat-Django/blob/master/template/img/homepage.png)
+![homepage1](https://github.com/ankitpipalia/Explore-Gujarat-Django/blob/master/template/img/homepage2.png)
