@@ -2,6 +2,10 @@
 This is a website built using Django, MySQL, Nginx as a reverse proxy, and Docker to provide information about travel places in the state of Gujarat, India.
 ___
 
+### Prerequisites
+ - Docker
+ - Git
+ 
 ### Installation and Setup
 1. Clone the repository
 ```
