@@ -21,4 +21,4 @@ RUN pip3 install -r requirements.txt
 RUN pip3 install --upgrade pip
 RUN chmod +x /var/www/html/script
 
-ENTRYPOINT /etc/init.d/mariadb start && /etc/init.d/nginx start && /bin/bash
+ENTRYPOINT /etc/init.d/mariadb start && /etc/init.d/nginx start && /var/www/html/script && python3 manage.py runserver 0.0.0.0:8000
