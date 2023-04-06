@@ -1,0 +1,9 @@
+FROM python:3.9
+
+RUN mkdir /Explore-Gujarat-Django
+COPY . /Explore-Gujarat-Django
+WORKDIR /Explore-Gujarat-Django
+RUN pip3 install -r requirements.txt
+RUN pip3 install --upgrade pip
+
+EXPOSE 8000
