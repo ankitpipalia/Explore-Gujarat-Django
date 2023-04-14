@@ -3,7 +3,7 @@ version: "3"
 services:
   
   mysql:
-    image: mariadb
+    image: yobasystems/alpine-mariadb:latest
     container_name: mysql
     restart: always
     environment:
