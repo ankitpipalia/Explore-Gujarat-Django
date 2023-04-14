@@ -1,9 +1,9 @@
 version: "3"
+
 services:
+  
   mysql:
-    build:
-      context: .
-      dockerfile: Dockerfile.mysql
+    image: mysql
     container_name: mysql
     restart: always
     environment:
@@ -12,25 +12,25 @@ services:
     volumes:
       - ./database/gujarat_database.sql:/docker-entrypoint-initdb.d/gujarat.sql
     ports:
-      - 3306:3306
+      - 3306
+  
   django:
-    build:
-      context: .
-      dockerfile: Dockerfile.django
+    build: .
     container_name: django
     restart: always
     command: python3 manage.py runserver 0.0.0.0:8000
+    ports:
+      - 8000
     depends_on:
       - mysql
+  
   nginx:
-    build:
-      context: .
-      dockerfile: Dockerfile.nginx
+    image: nginx
     container_name: nginx
     restart: always
     ports:
       - 80:80
     volumes:
-      - ./nginx/:/etc/nginx/conf.d/
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - django
