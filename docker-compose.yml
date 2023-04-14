@@ -12,7 +12,7 @@ services:
     volumes:
       - ./database/gujarat_database.sql:/docker-entrypoint-initdb.d/gujarat.sql
     ports:
-      - 3306:3306
+      - 3306
   
   django:
     build: .
@@ -20,7 +20,7 @@ services:
     restart: always
     command: python3 manage.py runserver 0.0.0.0:8000
     ports:
-      - 8000:8000
+      - 8000
     depends_on:
       - mysql
   
