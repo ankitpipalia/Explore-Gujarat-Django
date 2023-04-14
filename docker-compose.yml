@@ -12,7 +12,7 @@ services:
     volumes:
       - ./database/gujarat_database.sql:/docker-entrypoint-initdb.d/gujarat.sql
     ports:
-      - 3306
+      - 3306:3306
   
   django:
     build: .
