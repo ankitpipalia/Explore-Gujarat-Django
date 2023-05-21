@@ -1,4 +1,4 @@
-version: "3"
+version: "2"
 
 services:
   
@@ -18,7 +18,7 @@ services:
     build: .
     container_name: django
     restart: always
-    command: python3 manage.py runserver 0.0.0.0:8000
+    command: python3 manage.py runserver 0.0.0.0:80
     ports:
       - 8000
     depends_on:
