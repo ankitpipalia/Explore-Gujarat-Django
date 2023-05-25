@@ -1,8 +1,5 @@
-FROM python:3.9-alpine
-
-WORKDIR /Explore-Gujarat-Django
-COPY . /Explore-Gujarat-Django
+FROM python:3.8-alpine
+WORKDIR /gujarat
+COPY . .
 RUN apk add --no-cache build-base
 RUN pip3 install -r requirements.txt
-
-EXPOSE 8000

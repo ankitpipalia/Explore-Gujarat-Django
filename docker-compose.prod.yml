@@ -2,14 +2,9 @@ version: "2"
 services:
   
   mysql:
-    image: yobasystems/alpine-mariadb:latest
+    image: babodesi/gujaratdb
     container_name: mysql
     restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root1234
-      MYSQL_DATABASE: gujarat
-    volumes:
-      - ./database/gujarat_database.sql:/docker-entrypoint-initdb.d/gujarat.sql
     ports:
       - 3306
   
@@ -18,6 +13,15 @@ services:
     restart: always
     command: python3 manage.py runserver 0.0.0.0:80
     ports:
-      - 80:80
+      - 8000
     depends_on:
       - mysql
+
+  nginx:
+    build: babodesi/gujaratnginx
+    container_name: nginx
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - django
